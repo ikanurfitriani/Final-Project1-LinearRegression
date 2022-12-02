@@ -1,1 +1,1 @@
-File ipynb dijadikan rar karena size terlalu besar.
+File ipynb dijadikan rar karena size terlalu besar sehingga tidak dapat dipush ke github.
