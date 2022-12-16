@@ -21,3 +21,5 @@
 </table>
 
 Link deployment: https://prediction-app-fp1-kel8.herokuapp.com/
+
+*Note: File ipynb dijadikan rar karena size terlalu besar sehingga tidak dapat dipush ke github. Dan visualisasi yang digunakan adalah visualisasi interaktif dengan library Plotly.*
