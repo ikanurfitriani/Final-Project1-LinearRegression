@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <title>Cab Price Predict App</title>
+    </head>
+    <body
+        class="
+            flex flex-col
+            justify-between
+            item-center
+            p-8
+            min-h-screen
+            bg-gradient-to-r
+            from-yellow-400
+            to-blue-500
+            text-gray-800
+            md:flex-row
+        "
+    >
+        <main class="bg-white p-16 rounded-lg">
+            <h1 class="text-3xl font-bold mb-8">
+                Predict Your Cab Price:
+            </h1>
+
+            <form
+                action="{{url_for('predict')}}"
+                method="post"
+                class="flex flex-col"
+            >
+                <label for="inputDistance">Distance</label>
+				<input id="distance" name="distance" 
+				class="p-4 bg-gray-100 rounded-md" type="text" required>
+
+                <label for="inputSurge">Surge Multiplier</label>
+				<input id="surge" name="surge" 
+				class="p-4 bg-gray-100 rounded-md" type="text" required>
+
+                <label class="input-group-text" for="cab">Cab Name</label>
+				<select id="cab" name="cab" class="p-4 bg-gray-100 rounded-md">
+					<option selected>Choose...</option>
+					<option value="UberBlack">Uber Black</option>
+					<option value="UberBlackSUV">Uber Black SUV</option>
+					<option value="LyftLux">Lyft Lux</option>
+					<option value="LyftLuxBlack">Lyft Lux Black</option>
+					<option value="LyftLuxBlackXL">Lyft Lux Black XL</option>
+					<option value="Lyft">Lyft</option>
+					<option value="LyftXL">Lyft XL</option>
+					<option value="LyftShared">Lyft Shared</option>
+					<option value="UberTaxi">Uber Taxi</option>
+					<option value="UberPool">Uber Pool</option>
+					<option value="UberX">Uber X</option>
+					<option value="UberXL">Uber XL</option>
+					<option value="UberWAV">Uber WAV</option>
+				</select>
+
+                <button
+                    type="submit"
+                    class="
+                        flex
+                        justify-center
+                        align-center
+                        mt-8
+                        p-4
+                        bg-gradient-to-r
+                        from-blue-400
+                        to-yellow-500
+                        text-white
+                        rounded-md
+                    "
+                >
+                    PREDICT NOW
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-arrow-right ml-4"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form>
+        </main>
+        <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
+            <div class="bg-white p-16 rounded-lg">
+                <h1 class="text-2xl mb-8">
+                    Your Cab Price Prediction
+                </h1>
+                <h2 class="text-5xl font-bold">USD {{prediction}}</h2>
+                {% if (prediction) != 0 %}
+                <div class="mt-8">
+                    <p>Distance: {{ distance }}</p>
+                    <p>Surge Multiplier: {{ surge }}</p>
+                    <p>Cab Name: {{ cab }}</p>
+                </div>
+                {% endif %}
+            </div>
+            <div class="bg-white p-16 rounded-lg mt-8">
+                <h1 class="text-2xl mb-8">
+                    About Us:
+                </h1>
+                <div class="mt-8">
+                    <p>Ervizal Buana J</p>
+                    <p>Ika Nurfitriani</p>
+                    <p>Muhammad Reesa R</p>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
